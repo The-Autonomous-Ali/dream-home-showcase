@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
-import houseFront from "@/assets/house-front.jpeg";
 import heroHouse from "@/assets/hero-house.jpeg";
 import aerial1 from "@/assets/site-aerial-1.jpeg";
 import aerial3 from "@/assets/site-aerial-3.jpeg";
