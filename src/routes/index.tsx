@@ -58,9 +58,9 @@ function Home() {
         {/* Stats strip */}
         <div className="container mx-auto px-6 py-10">
           <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto text-center">
-            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">50+</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">Row Houses</div></div>
-            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">24/7</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">Gated Security</div></div>
-            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">Ready</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">To Move In</div></div>
+            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">100+</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">Row Houses</div></div>
+            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">50 ft</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">Main Road</div></div>
+            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">30 ft</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">Branch Road</div></div>
           </div>
         </div>
       </section>
