@@ -23,16 +23,22 @@ function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="container mx-auto px-6 pt-16 pb-20 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="container mx-auto px-6 pt-10 pb-16">
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="inline-block px-3 py-1 rounded-full bg-accent/30 text-accent-foreground text-xs font-semibold tracking-wide uppercase mb-5">Now Selling · Limited Inventory</span>
-            <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-[1.05]">
               Where craftsmanship meets <span className="text-primary">modern living</span>.
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl">
+          </div>
+          <div className="relative max-w-4xl mx-auto">
+            <div className="absolute -inset-4 bg-[var(--gradient-hero)] rounded-3xl blur-2xl opacity-30" />
+            <img src={houseFront} alt="Premium row house facade at Urbanaid Uniworld" className="relative rounded-2xl shadow-[var(--shadow-elegant)] w-full object-cover aspect-[16/10]" />
+          </div>
+          <div className="max-w-3xl mx-auto text-center mt-10">
+            <p className="text-lg text-muted-foreground mb-8">
               Urbanaid Uniworld presents a thoughtfully designed enclave of premium row houses — handcrafted facades, spacious interiors, and a gated community lifestyle.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/contact" className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 shadow-[var(--shadow-elegant)] transition">Book a Site Visit</Link>
               <Link to="/gallery" className="inline-flex items-center justify-center rounded-md border border-border bg-card px-6 py-3 font-semibold hover:bg-secondary transition">View Gallery</Link>
             </div>
@@ -41,10 +47,6 @@ function Home() {
               <div><div className="text-3xl font-display font-bold text-primary">24/7</div><div className="text-xs text-muted-foreground mt-1">Gated Security</div></div>
               <div><div className="text-3xl font-display font-bold text-primary">Ready</div><div className="text-xs text-muted-foreground mt-1">To Move In</div></div>
             </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-4 bg-[var(--gradient-hero)] rounded-3xl blur-2xl opacity-30" />
-            <img src={houseFront} alt="Premium row house facade at Urbanaid Uniworld" className="relative rounded-2xl shadow-[var(--shadow-elegant)] w-full object-cover aspect-[3/4]" />
           </div>
         </div>
       </section>
