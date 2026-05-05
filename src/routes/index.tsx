@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
-import houseFront from "@/assets/house-front.jpeg";
+import heroHouse from "@/assets/hero-house.jpeg";
 import aerial1 from "@/assets/site-aerial-1.jpeg";
 import aerial3 from "@/assets/site-aerial-3.jpeg";
 import entrance from "@/assets/site-entrance.jpeg";
@@ -21,32 +21,46 @@ function Home() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="container mx-auto px-6 pt-10 pb-16">
-          <div className="text-center max-w-3xl mx-auto mb-8">
-            <span className="inline-block px-3 py-1 rounded-full bg-accent/30 text-accent-foreground text-xs font-semibold tracking-wide uppercase mb-5">Now Selling · Limited Inventory</span>
-            <h1 className="text-4xl md:text-6xl font-bold leading-[1.05]">
-              Where craftsmanship meets <span className="text-primary">modern living</span>.
-            </h1>
-          </div>
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute -inset-4 bg-[var(--gradient-hero)] rounded-3xl blur-2xl opacity-30" />
-            <img src={houseFront} alt="Premium row house facade at Urbanaid Uniworld" className="relative rounded-2xl shadow-[var(--shadow-elegant)] w-full object-cover aspect-[16/10]" />
-          </div>
-          <div className="max-w-3xl mx-auto text-center mt-10">
-            <p className="text-lg text-muted-foreground mb-8">
-              Urbanaid Uniworld presents a thoughtfully designed enclave of premium row houses — handcrafted facades, spacious interiors, and a gated community lifestyle.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center">
-              <Link to="/contact" className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 shadow-[var(--shadow-elegant)] transition">Book a Site Visit</Link>
-              <Link to="/gallery" className="inline-flex items-center justify-center rounded-md border border-border bg-card px-6 py-3 font-semibold hover:bg-secondary transition">View Gallery</Link>
+      {/* Hero — cinematic full-bleed */}
+      <section className="relative w-full overflow-hidden">
+        <div className="relative h-[88vh] min-h-[560px] w-full">
+          <img
+            src={heroHouse}
+            alt="Signature row house at Urbanaid Uniworld — hand-carved sandstone facade"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Cinematic gradients for depth + legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+
+          <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-end pb-16 md:pb-24">
+            <div className="max-w-3xl">
+              <span className="inline-block px-3 py-1.5 rounded-full bg-white/12 backdrop-blur-sm text-white text-[11px] md:text-xs font-semibold tracking-[0.25em] uppercase mb-6 border border-white/25">
+                Now Selling · Limited Inventory
+              </span>
+              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.02] drop-shadow-[0_4px_30px_rgba(0,0,0,0.45)]">
+                Where craftsmanship<br/>meets <span className="text-accent italic">modern living</span>.
+              </h1>
+              <p className="mt-6 text-base md:text-lg text-white/85 max-w-xl">
+                A thoughtfully designed enclave of premium row houses — hand-carved sandstone facades, spacious interiors, and a gated community lifestyle.
+              </p>
+              <div className="flex flex-wrap gap-3 mt-8">
+                <Link to="/contact" className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 shadow-[var(--shadow-elegant)] transition">Book a Site Visit</Link>
+                <Link to="/gallery" className="inline-flex items-center justify-center rounded-md border border-white/40 bg-white/10 backdrop-blur-sm px-6 py-3 font-semibold text-white hover:bg-white/20 transition">View Gallery</Link>
+              </div>
             </div>
-            <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border">
-              <div><div className="text-3xl font-display font-bold text-primary">50+</div><div className="text-xs text-muted-foreground mt-1">Row Houses</div></div>
-              <div><div className="text-3xl font-display font-bold text-primary">24/7</div><div className="text-xs text-muted-foreground mt-1">Gated Security</div></div>
-              <div><div className="text-3xl font-display font-bold text-primary">Ready</div><div className="text-xs text-muted-foreground mt-1">To Move In</div></div>
-            </div>
+          </div>
+
+          {/* Soft fade into next section */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        </div>
+
+        {/* Stats strip */}
+        <div className="container mx-auto px-6 py-10">
+          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto text-center">
+            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">50+</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">Row Houses</div></div>
+            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">24/7</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">Gated Security</div></div>
+            <div><div className="text-3xl md:text-4xl font-display font-bold text-primary">Ready</div><div className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">To Move In</div></div>
           </div>
         </div>
       </section>
