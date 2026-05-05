@@ -91,6 +91,34 @@ function Home() {
         </div>
       </section>
 
+      {/* Cinematic video */}
+      <section className="relative w-full overflow-hidden">
+        <div className="relative h-[70vh] min-h-[480px] w-full">
+          <video
+            src="/site-flythrough.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm text-white text-xs font-semibold tracking-[0.2em] uppercase mb-6 border border-white/20">
+              A Cinematic Walkthrough
+            </span>
+            <h2 className="font-display text-4xl md:text-7xl font-bold text-white leading-[1.05] max-w-4xl drop-shadow-lg">
+              Step inside <span className="text-accent">Urbanaid Uniworld</span>
+            </h2>
+            <p className="mt-6 max-w-2xl text-white/85 text-base md:text-lg">
+              An aerial tour of the community — wide boulevards, grand entrance, and rows of crafted homes.
+            </p>
+          </div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="container mx-auto px-6 py-20">
         <div className="rounded-3xl bg-[var(--gradient-hero)] p-12 md:p-16 text-center text-primary-foreground shadow-[var(--shadow-elegant)]">
