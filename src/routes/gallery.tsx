@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import houseFront from "@/assets/house-front.jpeg";
 import a1 from "@/assets/site-aerial-1.jpeg";
-import a2 from "@/assets/site-aerial-2.jpeg";
 import a3 from "@/assets/site-aerial-3.jpeg";
 import entrance from "@/assets/site-entrance.jpeg";
 
@@ -20,7 +19,7 @@ export const Route = createFileRoute("/gallery")({
 
 type Media = { id: string; title: string | null; description: string | null; media_type: string; storage_path: string; created_at: string };
 
-const defaults = [houseFront, entrance, a1, a3, a2];
+const defaults = [houseFront, entrance, a1, a3];
 
 function Gallery() {
   const [items, setItems] = useState<Media[]>([]);
