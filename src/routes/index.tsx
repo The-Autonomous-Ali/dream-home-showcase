@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
 import houseFront from "@/assets/house-front.jpeg";
 import aerial1 from "@/assets/site-aerial-1.jpeg";
-import aerial2 from "@/assets/site-aerial-2.jpeg";
+import aerial3 from "@/assets/site-aerial-3.jpeg";
 import entrance from "@/assets/site-entrance.jpeg";
 import { MapPin, Shield, Sparkles, Trees, Building2, KeySquare } from "lucide-react";
 
@@ -81,7 +81,7 @@ function Home() {
       <section className="bg-[var(--gradient-warm)] py-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-4">
-            {[aerial1, entrance, aerial2].map((src, i) => (
+            {[aerial1, entrance, aerial3].map((src, i) => (
               <img key={i} src={src} alt={`Urbanaid Uniworld view ${i + 1}`} className="rounded-xl shadow-[var(--shadow-soft)] w-full h-72 object-cover" />
             ))}
           </div>
