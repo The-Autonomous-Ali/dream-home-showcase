@@ -46,7 +46,7 @@ export function SiteFooter() {
         </div>
         <div>
           <div className="font-semibold mb-2">Contact</div>
-          <p className="text-muted-foreground">Urbanaid Infratech Pvt. Ltd.<br/>Sales: +91 — call to enquire</p>
+          <p className="text-muted-foreground">Urbanaid Infratech Pvt. Ltd.<br/>Sales: <a href="tel:+916393589973" className="hover:text-primary">+91 63935 89973</a></p>
         </div>
       </div>
       <div className="text-center text-xs text-muted-foreground py-4 border-t border-border">© {new Date().getFullYear()} Urbanaid Uniworld. All rights reserved.</div>
