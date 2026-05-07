@@ -1,38 +1,59 @@
-# Lovable Frontend Integration
+# Vercel and Supabase Integration
 
 This frontend now assumes:
 
-- public website runs from this Vite app
-- secure lead API runs on the Express backend in the workspace root
-- owner dashboard stays on the backend at `/admin/login`
+- the public website and owner dashboard both run from this app
+- visitor enquiries are saved directly to Supabase
+- owner login uses Supabase Auth
 
-## Development
+## Required environment variables
 
-1. Start the backend from the workspace root:
+Set these in Vercel project settings and in `.env.local` for local development:
 
-```powershell
-npm.cmd run dev
+```env
+VITE_SUPABASE_URL=
+VITE_SUPABASE_PUBLISHABLE_KEY=
+VITE_ALLOW_OWNER_SIGNUP=false
 ```
 
-2. Start this frontend in a second terminal:
+`VITE_ALLOW_OWNER_SIGNUP` is optional. Leave it `false` for normal operation. Turn it on temporarily only if you want to create the first owner account from the site itself.
+
+## Local development
+
+1. Start the frontend:
 
 ```powershell
 cd external\dream-home-showcase
 npm.cmd run dev
 ```
 
-## Backend URL
+2. Open the Vite URL shown in the terminal.
 
-By default, local development assumes the backend is on `http://localhost:3000`.
+## Current behavior
 
-If you change the backend port, create `.env.local` in this folder:
+- Contact page inserts rows into `public.leads`
+- `/auth` signs owners in with Supabase Auth
+- `/admin` shows leads only to users with the `admin` role
+- Admin users can delete leads from the dashboard
 
-```env
-VITE_BACKEND_URL=http://localhost:3000
-```
+## First owner setup
 
-## Current Behavior
+Safest option:
 
-- Contact page posts to `POST /api/leads`
-- Gallery uses local static media only
-- `/auth` and `/admin` in the frontend link to the secure backend dashboard
+1. Create the owner user in Supabase Auth.
+2. Sign in at `/auth`.
+3. Open `/admin` and click `Claim First Admin Access` if no admin exists yet.
+
+Optional self-service option:
+
+1. Set `VITE_ALLOW_OWNER_SIGNUP=true`.
+2. Use `/auth` to create the first owner account.
+3. Visit `/admin` to claim admin access.
+4. Set `VITE_ALLOW_OWNER_SIGNUP=false` again and redeploy.
+
+## Database
+
+If your Supabase project does not already have the required tables and policies, run the SQL files in:
+
+- `supabase/migrations/20260505162007_b8358eaf-9806-40a6-9f51-aee7df5f52a0.sql`
+- `supabase/migrations/20260505162328_12db3f58-3d0f-4031-a71c-076f26b3226a.sql`

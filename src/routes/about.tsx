@@ -69,7 +69,7 @@ function About() {
           {[
             "Designed for long-term family living, not short-term rental turnover.",
             "Focus on natural light, broader circulation, and a calmer street feel.",
-            "Lead capture is handled through the secure backend contact flow.",
+            "Lead capture is stored securely and visible only in the owner dashboard.",
           ].map((item) => (
             <div key={item} className="rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">

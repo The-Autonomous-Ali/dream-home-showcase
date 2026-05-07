@@ -26,8 +26,8 @@ const faqs = [
     answer: "Yes. Call the sales number or message on WhatsApp first if you prefer a quick conversation.",
   },
   {
-    question: "Is the lead form connected to the backend?",
-    answer: "Yes. The contact page posts directly to the secure lead endpoint handled by the backend.",
+    question: "Is the lead form connected to a secure dashboard?",
+    answer: "Yes. The contact page saves enquiries directly into the secure Supabase lead dashboard used by the owner account.",
   },
 ];
 
@@ -127,7 +127,7 @@ function Home() {
       <section className="container mx-auto px-6 pb-6">
         <div className="grid gap-4 md:grid-cols-3">
           {[
-            "Direct lead form connected to the backend",
+            "Direct lead form connected to the owner dashboard",
             "Quick call and WhatsApp contact options",
             "Mobile-first layout with local gallery assets",
           ].map((item) => (

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { buildBackendUrl } from "@/lib/backend";
+import { supabase } from "@/integrations/supabase/client";
 import { MessageCircle, PhoneCall, ShieldCheck } from "lucide-react";
 
 const phoneNumber = "+916393589973";
@@ -49,28 +49,18 @@ function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch(buildBackendUrl("/api/leads"), {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: parsed.data.name,
-          mobile: parsed.data.mobile,
-          consent: parsed.data.consent,
-          company: "",
-        }),
+      const { error } = await supabase.from("leads").insert({
+        name: parsed.data.name,
+        mobile: parsed.data.mobile,
       });
 
-      const result = await response.json();
-
-      if (!response.ok || !result.ok) {
-        throw new Error(result.message || "Could not submit. Please try again.");
+      if (error) {
+        throw error;
       }
 
       setDone(true);
       setForm({ name: "", mobile: "", consent: false });
-      toast.success(result.message || "Thank you! We'll contact you shortly.");
+      toast.success("Thank you! We'll contact you shortly.");
     } catch (error) {
       const message = error instanceof Error ? error.message : "Could not submit. Please try again.";
       toast.error(message);
@@ -193,7 +183,7 @@ function Contact() {
             {loading ? "Sending..." : done ? "Sent - send another?" : "Submit Enquiry"}
           </button>
           <p className="text-center text-xs text-muted-foreground">
-            The form posts to the secure backend lead endpoint, not to a public inbox.
+            The form saves directly to the secure lead dashboard, not to a public inbox.
           </p>
         </form>
       </section>
