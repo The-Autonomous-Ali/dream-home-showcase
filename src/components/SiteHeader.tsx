@@ -14,10 +14,7 @@ export function SiteHeader() {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-[var(--shadow-soft)]">
             <Home className="h-5 w-5" />
           </div>
-          <div>
-            <div className="font-display text-lg font-bold leading-none">Urbanaid Uniworld</div>
-            <div className="text-xs text-muted-foreground">Premium Row Houses</div>
-          </div>
+          <div className="font-display text-lg font-bold leading-none">Premium Row Houses</div>
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-primary" }} className="transition hover:text-primary">
@@ -67,7 +64,6 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-border bg-secondary/40">
       <div className="site-shell grid gap-8 py-10 text-sm md:grid-cols-3">
         <div>
-          <div className="mb-2 font-display text-xl font-bold">Urbanaid Uniworld</div>
           <p className="text-muted-foreground">Premium gated community of row houses with modern architecture and timeless craftsmanship.</p>
         </div>
         <div>
@@ -93,15 +89,13 @@ export function SiteFooter() {
         <div>
           <div className="mb-2 font-semibold">Contact</div>
           <p className="text-muted-foreground">
-            Urbanaid Infratech Pvt. Ltd.
-            <br />
             Sales: <a href={`tel:${phoneNumber}`} className="hover:text-primary">{phoneNumber}</a>
           </p>
         </div>
       </div>
       <div className="flex items-center justify-center gap-3 border-t border-border py-4 text-center text-xs text-muted-foreground">
         <Building2 className="h-3.5 w-3.5" />
-        <span>&copy; {new Date().getFullYear()} Urbanaid Uniworld. All rights reserved.</span>
+        <span>&copy; {new Date().getFullYear()} All rights reserved.</span>
       </div>
     </footer>
   );

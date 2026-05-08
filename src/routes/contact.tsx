@@ -109,7 +109,7 @@ function Contact() {
 
             <div className="rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
               <div className="mb-1 font-semibold">Sales office</div>
-              <div className="text-muted-foreground">Urbanaid Infratech Pvt. Ltd.<br />On-site sales gallery open daily.</div>
+              <div className="text-muted-foreground">On-site sales gallery open daily.</div>
             </div>
 
             <div className="rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">

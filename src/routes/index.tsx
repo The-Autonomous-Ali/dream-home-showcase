@@ -5,7 +5,7 @@ import aerial1 from "@/assets/site-aerial-1.jpeg";
 import aerial3 from "@/assets/site-aerial-3.jpeg";
 import entrance from "@/assets/site-entrance.jpeg";
 import heroHouse from "@/assets/hero-house.jpeg";
-import { BadgeCheck, Building2, KeySquare, MapPin, PhoneCall, Shield, Sparkles, Trees } from "lucide-react";
+import { Building2, KeySquare, MapPin, PhoneCall, Shield, Sparkles, Trees } from "lucide-react";
 
 const phoneNumber = "+916393589973";
 const whatsappHref = `https://wa.me/${phoneNumber.replace(/\D/g, "")}?text=${encodeURIComponent(
@@ -126,21 +126,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="site-shell pb-6">
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            "Direct lead form connected to the owner dashboard",
-            "Quick call and WhatsApp contact options",
-            "Mobile-first layout with local gallery assets",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-[var(--shadow-soft)]">
-              <BadgeCheck className="h-5 w-5 shrink-0 text-primary" />
-              <p className="text-sm text-muted-foreground">{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="site-shell py-20">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold">A community designed around you</h2>
@@ -211,7 +196,7 @@ function Home() {
                 A Cinematic Walkthrough
               </span>
               <h2 className="max-w-4xl font-display text-4xl font-bold leading-[1.05] text-white drop-shadow-lg md:text-7xl">
-                Step inside <span className="text-accent">Urbanaid Uniworld</span>
+                Step inside <span className="text-accent">Premium House</span>
               </h2>
               <p className="mt-6 max-w-2xl text-base text-white/85 md:text-lg">
                 An aerial tour of the community, wide boulevards, grand entrance, and rows of crafted homes.
