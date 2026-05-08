@@ -20,7 +20,7 @@ function About() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <section className="container mx-auto max-w-5xl px-6 py-16">
+      <section className="site-shell max-w-5xl py-16 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <span className="mb-4 inline-flex rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">

@@ -74,7 +74,7 @@ function Contact() {
       <Toaster />
       <SiteHeader />
 
-      <section className="container mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr]">
+      <section className="site-shell grid max-w-6xl gap-12 py-16 sm:py-20 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <span className="mb-4 inline-flex rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
             Contact and site visit

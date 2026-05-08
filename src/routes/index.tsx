@@ -53,60 +53,62 @@ function Home() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <section className="relative w-full overflow-hidden">
-        <div className="relative h-[88vh] min-h-[560px] w-full">
-          <img
-            src={heroHouse}
-            alt="Signature row house at Urbanaid Uniworld with a hand-carved sandstone facade"
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-black/80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+      <section className="relative overflow-hidden">
+        <div className="site-shell-wide lg:pt-6">
+          <div className="relative h-[82vh] min-h-[560px] w-full lg:h-[46rem] lg:overflow-hidden lg:rounded-[2rem] lg:shadow-[var(--shadow-elegant)]">
+            <img
+              src={heroHouse}
+              alt="Signature row house at Urbanaid Uniworld with a hand-carved sandstone facade"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-black/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
 
-          <div className="relative z-10 container mx-auto flex h-full flex-col justify-end px-6 pb-16 md:pb-24">
-            <div className="max-w-3xl">
-              <span className="mb-6 inline-block rounded-full border border-white/25 bg-white/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm md:text-xs">
-                Now Selling
-              </span>
-              <h1 className="font-display text-5xl font-bold leading-[1.02] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.45)] md:text-7xl lg:text-8xl">
-                Where craftsmanship
-                <br />
-                meets <span className="text-accent italic">modern living</span>.
-              </h1>
-              <p className="mt-6 max-w-xl text-base text-white/85 md:text-lg">
-                A thoughtfully designed enclave of premium row houses, hand-carved sandstone facades, spacious interiors, and a gated community lifestyle.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] transition hover:opacity-90"
-                >
-                  Book a Site Visit
-                </Link>
-                <Link
-                  to="/gallery"
-                  className="inline-flex items-center justify-center rounded-md border border-white/40 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
-                >
-                  View Gallery
-                </Link>
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-md border border-white/30 bg-white/15 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/25"
-                >
-                  WhatsApp Us
-                </a>
+            <div className="relative z-10 mx-auto flex h-full w-full max-w-[78rem] flex-col justify-end px-6 pb-16 md:px-8 md:pb-24 lg:px-10">
+              <div className="max-w-3xl">
+                <span className="mb-6 inline-block rounded-full border border-white/25 bg-white/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm md:text-xs">
+                  Now Selling
+                </span>
+                <h1 className="font-display text-5xl font-bold leading-[1.02] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.45)] md:text-7xl lg:text-[5.25rem]">
+                  Where craftsmanship
+                  <br />
+                  meets <span className="text-accent italic">modern living</span>.
+                </h1>
+                <p className="mt-6 max-w-xl text-base text-white/85 md:text-lg">
+                  A thoughtfully designed enclave of premium row houses, hand-carved sandstone facades, spacious interiors, and a gated community lifestyle.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] transition hover:opacity-90"
+                  >
+                    Book a Site Visit
+                  </Link>
+                  <Link
+                    to="/gallery"
+                    className="inline-flex items-center justify-center rounded-md border border-white/40 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+                  >
+                    View Gallery
+                  </Link>
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center rounded-md border border-white/30 bg-white/15 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/25"
+                  >
+                    WhatsApp Us
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+          </div>
         </div>
 
-        <div className="container mx-auto px-6 py-10">
+        <div className="site-shell py-10">
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 text-center sm:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card/80 p-5 shadow-[var(--shadow-soft)]">
               <div className="font-display text-3xl font-bold text-primary md:text-4xl">100+</div>
@@ -124,7 +126,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 pb-6">
+      <section className="site-shell pb-6">
         <div className="grid gap-4 md:grid-cols-3">
           {[
             "Direct lead form connected to the owner dashboard",
@@ -139,7 +141,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 py-20">
+      <section className="site-shell py-20">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mb-4 text-4xl font-bold">A community designed around you</h2>
           <p className="text-muted-foreground">
@@ -167,7 +169,7 @@ function Home() {
       </section>
 
       <section className="bg-[var(--gradient-warm)] py-20">
-        <div className="container mx-auto px-6">
+        <div className="site-shell">
           <div className="grid gap-4 md:grid-cols-3">
             {[aerial1, entrance, aerial3].map((src, i) => (
               <img
@@ -191,34 +193,36 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative w-full overflow-hidden">
-        <div className="relative h-[70vh] min-h-[480px] w-full">
-          <video
-            src="/site-flythrough.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <span className="mb-6 inline-block rounded-full border border-white/20 bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
-              A Cinematic Walkthrough
-            </span>
-            <h2 className="max-w-4xl font-display text-4xl font-bold leading-[1.05] text-white drop-shadow-lg md:text-7xl">
-              Step inside <span className="text-accent">Urbanaid Uniworld</span>
-            </h2>
-            <p className="mt-6 max-w-2xl text-base text-white/85 md:text-lg">
-              An aerial tour of the community, wide boulevards, grand entrance, and rows of crafted homes.
-            </p>
+      <section className="relative overflow-hidden py-20">
+        <div className="site-shell-wide">
+          <div className="relative h-[60vh] min-h-[460px] w-full lg:h-[36rem] lg:overflow-hidden lg:rounded-[2rem] lg:shadow-[var(--shadow-elegant)]">
+            <video
+              src="/site-flythrough.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-10">
+              <span className="mb-6 inline-block rounded-full border border-white/20 bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+                A Cinematic Walkthrough
+              </span>
+              <h2 className="max-w-4xl font-display text-4xl font-bold leading-[1.05] text-white drop-shadow-lg md:text-7xl">
+                Step inside <span className="text-accent">Urbanaid Uniworld</span>
+              </h2>
+              <p className="mt-6 max-w-2xl text-base text-white/85 md:text-lg">
+                An aerial tour of the community, wide boulevards, grand entrance, and rows of crafted homes.
+              </p>
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
           </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
       </section>
 
-      <section className="container mx-auto max-w-4xl px-6 py-20">
+      <section className="site-shell max-w-4xl py-20">
         <div className="mb-10 text-center">
           <h2 className="mb-4 text-4xl font-bold">Frequently asked questions</h2>
           <p className="text-muted-foreground">A few quick answers before you book a site visit.</p>
@@ -233,7 +237,7 @@ function Home() {
         </Accordion>
       </section>
 
-      <section className="container mx-auto px-6 py-20">
+      <section className="site-shell py-20">
         <div className="rounded-3xl bg-[var(--gradient-hero)] p-12 text-center text-primary-foreground shadow-[var(--shadow-elegant)] md:p-16">
           <h2 className="mb-4 text-4xl font-bold md:text-5xl">Find your forever home today</h2>
           <p className="mx-auto mb-8 max-w-xl opacity-90">

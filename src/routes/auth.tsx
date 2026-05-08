@@ -131,7 +131,7 @@ function AuthPage() {
     <div className="min-h-screen bg-background">
       <Toaster />
       <SiteHeader />
-      <section className="container mx-auto max-w-md px-6 py-20">
+      <section className="site-shell max-w-md py-20">
         <div className="rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]">
           <span className="mb-4 inline-flex rounded-full border border-border bg-secondary/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
             Owner access

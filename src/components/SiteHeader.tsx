@@ -9,7 +9,7 @@ const whatsappHref = `https://wa.me/${phoneNumber.replace(/\D/g, "")}?text=${enc
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto flex items-center justify-between gap-4 px-6 py-4">
+      <div className="site-shell flex items-center justify-between gap-4 py-4">
         <Link to="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-[var(--shadow-soft)]">
             <Home className="h-5 w-5" />
@@ -65,7 +65,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-secondary/40">
-      <div className="container mx-auto grid gap-8 px-6 py-10 text-sm md:grid-cols-3">
+      <div className="site-shell grid gap-8 py-10 text-sm md:grid-cols-3">
         <div>
           <div className="mb-2 font-display text-xl font-bold">Urbanaid Uniworld</div>
           <p className="text-muted-foreground">Premium gated community of row houses with modern architecture and timeless craftsmanship.</p>

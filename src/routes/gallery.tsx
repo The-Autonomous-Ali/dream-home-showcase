@@ -29,7 +29,7 @@ function Gallery() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <section className="container mx-auto max-w-6xl px-6 py-16">
+      <section className="site-shell max-w-6xl py-16 sm:py-20">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h1 className="text-5xl font-bold">Project Gallery</h1>

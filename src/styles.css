@@ -72,10 +72,28 @@
 
 @layer base {
   * { border-color: var(--color-border); }
+  html { overflow-x: clip; }
   body {
+    min-height: 100vh;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: clip;
   }
   h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  img, video { display: block; max-width: 100%; }
+}
+
+@layer components {
+  .site-shell {
+    margin-inline: auto;
+    width: min(100%, 80rem);
+    padding-inline: clamp(1rem, 3vw, 2rem);
+  }
+
+  .site-shell-wide {
+    margin-inline: auto;
+    width: min(100%, 90rem);
+    padding-inline: clamp(0rem, 2vw, 1.5rem);
+  }
 }
