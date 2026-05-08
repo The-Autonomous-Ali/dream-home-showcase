@@ -33,7 +33,9 @@ npm.cmd run dev
 
 - Contact page inserts rows into `public.leads`
 - `/auth` signs owners in with Supabase Auth
-- `/admin` shows leads only to users with the `admin` role
+- `/admin` shows leads and media tools only to users with the `admin` role
+- Admin users can upload and delete gallery media from the `site-media` Supabase storage bucket
+- Uploaded images appear on the public home/gallery pages automatically
 - Admin users can delete leads from the dashboard
 
 ## First owner setup

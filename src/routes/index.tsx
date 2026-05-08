@@ -6,11 +6,19 @@ import aerial3 from "@/assets/site-aerial-3.jpeg";
 import entrance from "@/assets/site-entrance.jpeg";
 import heroHouse from "@/assets/hero-house.jpeg";
 import { Building2, KeySquare, MapPin, PhoneCall, Shield, Sparkles, Trees } from "lucide-react";
+import { useEffect, useState } from "react";
+import { fetchSiteMedia, type PublicSiteMedia } from "@/lib/site-media";
 
 const phoneNumber = "+916393589973";
 const whatsappHref = `https://wa.me/${phoneNumber.replace(/\D/g, "")}?text=${encodeURIComponent(
   "Hi, I want to know more about Urbanaid Uniworld.",
 )}`;
+
+const fallbackCommunityImages = [
+  { src: aerial1, alt: "Aerial view of the project" },
+  { src: entrance, alt: "Main entrance of the community" },
+  { src: aerial3, alt: "Internal road and community view" },
+];
 
 const faqs = [
   {
@@ -49,6 +57,40 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const [uploadedImages, setUploadedImages] = useState<PublicSiteMedia[]>([]);
+
+  useEffect(() => {
+    let active = true;
+
+    const loadSiteMedia = async () => {
+      try {
+        const media = await fetchSiteMedia();
+
+        if (active) {
+          setUploadedImages(media.filter((item) => item.media_type === "image"));
+        }
+      } catch {
+        if (active) {
+          setUploadedImages([]);
+        }
+      }
+    };
+
+    void loadSiteMedia();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const communityImages =
+    uploadedImages.length > 0
+      ? uploadedImages.slice(0, 3).map((item, index) => ({
+          src: item.publicUrl,
+          alt: item.title?.trim() || item.description?.trim() || `Project photo ${index + 1}`,
+        }))
+      : fallbackCommunityImages;
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -156,11 +198,11 @@ function Home() {
       <section className="bg-[var(--gradient-warm)] py-20">
         <div className="site-shell">
           <div className="grid gap-4 md:grid-cols-3">
-            {[aerial1, entrance, aerial3].map((src, i) => (
+            {communityImages.map((item, i) => (
               <img
                 key={i}
-                src={src}
-                alt={`Urbanaid Uniworld view ${i + 1}`}
+                src={item.src}
+                alt={item.alt}
                 className="h-72 w-full rounded-xl object-cover shadow-[var(--shadow-soft)]"
                 loading="lazy"
                 decoding="async"

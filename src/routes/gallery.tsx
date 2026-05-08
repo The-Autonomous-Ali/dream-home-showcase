@@ -4,6 +4,8 @@ import houseFront from "@/assets/house-front.jpeg";
 import a1 from "@/assets/site-aerial-1.jpeg";
 import a3 from "@/assets/site-aerial-3.jpeg";
 import entrance from "@/assets/site-entrance.jpeg";
+import { useEffect, useState } from "react";
+import { fetchSiteMedia, type PublicSiteMedia } from "@/lib/site-media";
 
 export const Route = createFileRoute("/gallery")({
   component: Gallery,
@@ -25,7 +27,47 @@ const galleryItems = [
   { src: a3, alt: "Road and community aerial view", title: "Internal Road Network" },
 ];
 
+const fallbackVideoItems = [
+  {
+    src: "/site-flythrough.mp4",
+    title: "Project Flythrough",
+    description: "Use this section for the walkthrough or drone video.",
+  },
+];
+
 function Gallery() {
+  const [uploadedMedia, setUploadedMedia] = useState<PublicSiteMedia[]>([]);
+  const [mediaError, setMediaError] = useState("");
+
+  useEffect(() => {
+    let active = true;
+
+    const loadSiteMedia = async () => {
+      try {
+        const media = await fetchSiteMedia();
+
+        if (active) {
+          setUploadedMedia(media);
+          setMediaError("");
+        }
+      } catch (error) {
+        if (active) {
+          setUploadedMedia([]);
+          setMediaError(error instanceof Error ? error.message : "Could not load uploaded gallery media.");
+        }
+      }
+    };
+
+    void loadSiteMedia();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const uploadedImages = uploadedMedia.filter((item) => item.media_type === "image");
+  const uploadedVideos = uploadedMedia.filter((item) => item.media_type === "video");
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -45,8 +87,18 @@ function Gallery() {
           </Link>
         </div>
 
+        {mediaError && (
+          <div className="mb-6 rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground shadow-[var(--shadow-soft)]">
+            Uploaded media could not be loaded right now, so the starter gallery is shown instead.
+          </div>
+        )}
+
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {galleryItems.map((item, index) => (
+          {[...uploadedImages.map((item) => ({
+            src: item.publicUrl,
+            alt: item.title?.trim() || item.description?.trim() || "Uploaded project image",
+            title: item.title?.trim() || "Uploaded Project Photo",
+          })), ...galleryItems].map((item, index) => (
             <figure key={item.title} className={`overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] ${index === 0 ? "lg:col-span-2" : ""}`}>
               <img
                 src={item.src}
@@ -61,13 +113,19 @@ function Gallery() {
             </figure>
           ))}
 
-          <div className="overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] lg:col-span-2">
-            <video src="/site-flythrough.mp4" controls className="h-72 w-full bg-black object-cover" preload="metadata" />
-            <div className="p-3">
-              <div className="text-sm font-semibold">Project Flythrough</div>
-              <div className="text-xs text-muted-foreground">Use this section for the walkthrough or drone video.</div>
+          {[...uploadedVideos.map((item) => ({
+            src: item.publicUrl,
+            title: item.title?.trim() || "Uploaded Project Video",
+            description: item.description?.trim() || "Uploaded from the owner dashboard.",
+          })), ...fallbackVideoItems].map((item) => (
+            <div key={`${item.title}-${item.src}`} className="overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] lg:col-span-2">
+              <video src={item.src} controls className="h-72 w-full bg-black object-cover" preload="metadata" />
+              <div className="p-3">
+                <div className="text-sm font-semibold">{item.title}</div>
+                <div className="text-xs text-muted-foreground">{item.description}</div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
       <SiteFooter />
