@@ -76,6 +76,9 @@ function AuthPage() {
       const { data, error } = await supabase.auth.signUp({
         email: form.email.trim(),
         password: form.password,
+        options: {
+          emailRedirectTo: typeof window !== "undefined" ? `${window.location.origin}/auth` : undefined,
+        },
       });
 
       if (error) {
